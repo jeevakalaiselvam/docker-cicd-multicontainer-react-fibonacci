@@ -14,4 +14,9 @@ The application takes in user input and stores the data in Postgres, Uses Redis 
         * Use Body Parser to encode body into JSON
     5. Create connection to Postgres
         * Create the table in database
-    6.
+
+    6. Crate Redis client
+        * Create a publisher for data
+
+    7. Setup Route endpoints in Express as needed
+        * Atleast one POST method handler to get data from user for calculation
