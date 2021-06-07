@@ -21,6 +21,9 @@
 .form-input {
     display: block;
     padding: 1rem;
+    font-family: inherit;
+    font-size: 1.5rem;
+    font-weight: bold;
     background-color: white;
 }
 
