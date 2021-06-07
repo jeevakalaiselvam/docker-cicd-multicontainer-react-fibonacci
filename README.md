@@ -53,5 +53,3 @@ The application takes in user input and stores the data in Postgres, Uses Redis 
         * Specify volume reference mapping
         * Manage links between containers
         * Uses Nginx to map requests between React or Express
-
-    6.
