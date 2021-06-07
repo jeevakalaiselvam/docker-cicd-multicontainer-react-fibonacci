@@ -1,0 +1,50 @@
+#Define the version
+version: '3'
+
+#Define all services for the application
+services:
+    postgres:
+        image: 'postgres:latest' #Get the latest image of postgres from docker hub
+    redis:
+        image: 'redis:latest' #Get the latest image of redis from docker hub
+    nginx:
+        restart: always #If the service fails, Always restart the service
+        build:
+            dockerfile: Dockerfile.dev
+            context: ./nginx
+            ports:
+                - '3050:80'
+    api: #Create the api server service
+        build:
+            context: ./server
+            dockerfile: Dockerfile.dev
+        volumes:
+            - /app/node_modules #This tells docker to not overide or do anything with node_modules folder inside container
+            - ./server:/app #Makes sure there is a volume reference to server root and changes are reflected back in app folder in container
+        environment:
+            - REDIS_HOST=redis
+            - REDIS_PORT=6379
+            - POSTGRES_PASSWORD=postgres_password
+            - PGUSER=postgres
+            - PGHOST=postgres
+            - PGDATABASE=postgres
+            - PGPASSWORD=postgres_password
+            - PGPORT=5432
+    client: #Create the client service
+        stdin_open: true
+        build:
+            dockerfile: Dockerfile.dev
+            context: ./client
+        volumes:
+            - /app/node_modules
+            - ./client:/app
+    worker: #Create the worker service
+        build:
+            dockerfile: Dockerfile.dev
+            context: ./worker
+        volumes:
+            - ./app/node_modules
+            - ./worker:/app
+        environment:
+            - REDIS_HOST: redis
+            - REDIS_PORT: 6379

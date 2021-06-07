@@ -1,6 +1,6 @@
 # Multi Container Application
 
-This is a simple multi container application with React, Node, Express, Redis and Postgres using Docker.
+This is a simple multi container application with React, Node, Express, Redis, Nginx and Postgres using Docker.
 The applicatio uses React as Front end and Node Express as back end.
 The application takes in user input and stores the data in Postgres, Uses Redis to cache the already visited values.
 
@@ -36,16 +36,22 @@ The application takes in user input and stores the data in Postgres, Uses Redis 
 # Docker Setup
 
     1. Create a Dev Dockerfile for each block (client, server and worker)
+
     2. Steps to create in each Dockerfile to prevent rebuild every single time
         * COPY package.json file
         * RUN npm install
         * COPY all other data
         * VOLUME setup reference to listen for changes
+
     3. Build the containers using command -> docker build -f Dockerfile.dev .
+
     4. Run the container and check if its working using command without errors -> docker run CONTAINER_IMAGE
-    5. Create a docker compose to manage all Dockerfiles
+
+    5. Create a docker compose to manage all services
         * Helps with configuring port mapping
         * Setup environment variables
         * Specify volume reference mapping
         * Manage links between containers
+        * Uses Nginx to map requests between React or Express
+
     6.
