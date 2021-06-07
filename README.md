@@ -35,7 +35,7 @@ The application takes in user input and stores the data in Postgres, Uses Redis 
 
 # Docker Setup
 
-    1. Create a Dev Dockerfile for each block (client, server and worker)
+    1. Create a Dev Dockerfile for each service (client, server and worker)
 
     2. Steps to create in each Dockerfile to prevent rebuild every single time
         * COPY package.json file
