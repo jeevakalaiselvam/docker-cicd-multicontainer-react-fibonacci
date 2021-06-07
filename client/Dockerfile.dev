@@ -1,0 +1,12 @@
+#Start base image from node alpine
+FROM node:alpine
+#Setup working directory in container to /app
+WORKDIR '/app'
+#Copy package.json from current directory to working directory in container
+COPY ./package.json ./
+#Install app dependencies in container
+RUN npm install
+#Copy all other files in host machine
+COPY . .
+#Start the application using start script
+CMD ["npm","run","start"]

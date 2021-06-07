@@ -64,7 +64,6 @@ class Fib extends Component {
 
                 <h3>Calculated values:</h3>
                 {this.renderValues()}
-                {ti}
             </div>
         );
     }

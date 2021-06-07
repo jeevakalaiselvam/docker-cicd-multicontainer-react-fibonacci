@@ -1,4 +1,5 @@
 import './App.css';
+import Fib from './Fib.js';
 
 function App() {
     return (
