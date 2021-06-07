@@ -3,3 +3,9 @@
 This is a simple multi container application with React, Node, Express, Redis and Postgres using Docker.
 The applicatio uses React as Front end and Node Express as back end.
 The application takes in user input and stores the data in Postgres, Uses Redis to cache the already visited values.
+
+# Important Steps
+
+    1. Setup all configuration for hosts, ports, username, password with help of environment variables
+    2. Setup Redis worker to calculate heavy task in non blocking thread
+    3. Configure Redis and Postgres using environment variables
