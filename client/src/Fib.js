@@ -48,8 +48,9 @@ class Fib extends Component {
     render() {
         return (
             <div className="form-container">
+                <h1>Fibonacci Calculator</h1>
                 <form onSubmit={this.handleSubmit}>
-                    <label>Enter your index</label>
+                    <label className="form-label">Enter your index</label>
                     <input
                         className="form-input"
                         type="number"
