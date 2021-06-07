@@ -9,3 +9,9 @@ The application takes in user input and stores the data in Postgres, Uses Redis 
     1. Setup all configuration for hosts, ports, username, password with help of environment variables
     2. Setup Redis worker to calculate heavy task in non blocking thread
     3. Configure Redis and Postgres using environment variables
+    4. Create a Express server
+        * Allow CORS
+        * Use Body Parser to encode body into JSON
+    5. Create connection to Postgres
+        * Create the table in database
+    6.
