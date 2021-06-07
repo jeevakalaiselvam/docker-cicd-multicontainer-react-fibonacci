@@ -1,0 +1,11 @@
+.form-container {
+    background-color: redls;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-button {
+    background-color: red;
+}

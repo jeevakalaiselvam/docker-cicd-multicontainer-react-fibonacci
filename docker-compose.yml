@@ -9,11 +9,14 @@ services:
         image: 'redis:latest' #Get the latest image of redis from docker hub
     nginx:
         restart: always #If the service fails, Always restart the service
+        depends_on:
+            - api
+            - client
         build:
             dockerfile: Dockerfile.dev
             context: ./nginx
-            ports:
-                - '3050:80'
+        ports:
+            - '3050:80'
     api: #Create the api server service
         build:
             context: ./server
@@ -43,8 +46,8 @@ services:
             dockerfile: Dockerfile.dev
             context: ./worker
         volumes:
-            - ./app/node_modules
+            - /app/node_modules
             - ./worker:/app
         environment:
-            - REDIS_HOST: redis
-            - REDIS_PORT: 6379
+            - REDIS_HOST=redis
+            - REDIS_PORT=6379

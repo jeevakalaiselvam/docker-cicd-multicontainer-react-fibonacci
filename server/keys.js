@@ -1,5 +1,5 @@
 module.exports = {
-    //Define all configuration for Redis and Postgres with environment variables
+    //Define all configuration for Redis and Postgres with environment variable
     redisHost: process.env.REDIS_HOST,
     redisPort: process.env.REDIS_PORT,
     pgUser: process.env.PGUSER,
