@@ -29,3 +29,10 @@ The application takes in user input and stores the data in Postgres, Uses Redis 
 
     6. Setup Route endpoints in Express as needed
         * Atleast one POST method handler to get data from user for calculation
+
+    7. Setup and Create the React application
+        * Setup a form to submit data to endpoint
+
+# Docker Setup
+
+    1. Create a Dev Dockerfile for each block (client, server and worker)
