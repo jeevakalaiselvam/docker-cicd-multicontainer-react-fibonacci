@@ -53,3 +53,14 @@
 .heading {
     padding: 1rem;
 }
+
+.index-data {
+    padding: 0.5rem;
+    font-size: 1.1rem;
+}
+.index-h {
+    color: red;
+}
+.index-v {
+    color: blue;
+}

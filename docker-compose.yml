@@ -9,6 +9,9 @@ services:
             - POSTGRES_PASSWORD=postgres_password
     redis:
         image: 'redis:latest' #Get the latest image of redis from docker hub
+        environment:
+            - REDIS_HOST=redis
+            - REDIS_PORT=6379
     nginx:
         restart: always #If the service fails, Always restart the service
         depends_on:

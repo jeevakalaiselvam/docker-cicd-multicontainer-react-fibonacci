@@ -26,7 +26,7 @@ pgClient.on('error', () => console.log('Lost PG connection'));
 //Create a table to store the data in Postgres
 pgClient.on('connect', (client) => {
     client
-        .query('CREATE TABLE IF NOT EXISTS values (number INT')
+        .query('CREATE TABLE IF NOT EXISTS values (number INT)')
         .catch((err) => console.log(err));
 });
 
@@ -74,7 +74,7 @@ app.post('/values', async (req, res) => {
     redisClient.hset('values', index, 'Nothing yet!');
     redisPublisher.publish('insert', index);
     pgClient.query('INSERT INTO values(number) VALUES ($1)', [index]);
-    res.send({ working: true });
+    res.send({ working: true, index: index });
 });
 
 //Listen on port 5000

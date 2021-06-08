@@ -38,11 +38,15 @@ class Fib extends Component {
         const entries = [];
         for (let key in this.state.values) {
             entries.push(
-                <div key={key}>
-                    For index {key} I calculated {this.state.values[key]}
+                <div key={key} className="index-data">
+                    VALUE FOR INDEX
+                    <span className="index-h"> {key} </span>
+                    IS
+                    <span className="index-v"> {this.state.values[key]} </span>
                 </div>
             );
         }
+        return entries;
     }
 
     render() {
@@ -69,6 +73,7 @@ class Fib extends Component {
 
                 <h3 className="heading">Calculated values:</h3>
                 {this.renderValues()}
+                <br />
             </div>
         );
     }
